@@ -1,0 +1,2 @@
+webpackJsonp([4],{"4tle":function(e,t){},PCoq:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var r={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",[t("router-link",{attrs:{to:"/home"}},[this._v("Go to home")]),this._v(" "),t("h1",[this._v("PUBLICAR Enlace")])],1)},staticRenderFns:[]};var i=n("VU/8")({name:"publicar"},r,!1,function(e){n("4tle")},null,null);t.default=i.exports}});
+//# sourceMappingURL=4.js.map

@@ -1,0 +1,55 @@
+# compose.yml
+version: "3.5"
+
+services:
+  web:
+    image: localhost/basenode
+    ports:
+    - "3000:3000"
+
+    # Agregamos la ruta del volumen el cual compartiran los contenedores.
+    volumes:
+      - "/storage-pool/files:/usr/src/app/public/comp"
+
+    secrets:
+      - MYSQL_HOST
+      - MYSQL_PORT
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_DB
+      - SMTP_USERNAME
+      - SMTP_PASSWORD
+    environment:
+      MYSQL_HOST: /run/secrets/MYSQL_HOST
+      MYSQL_PORT: /run/secrets/MYSQL_PORT
+      MYSQL_USER: /run/secrets/MYSQL_USER
+      MYSQL_PASSWORD: /run/secrets/MYSQL_PASSWORD
+      MYSQL_DB: /run/secrets/MYSQL_DB
+      SMTP_USERNAME: /run/secrets/SMTP_USERNAME
+      SMTP_PASSWORD: /run/secrets/SMTP_PASSWORD
+      GOOGLE_CLIENT_ID: changeme
+      GOOGLE_CLIENT_SECRET: changeme
+      TOKEN_SECRET: chengeme
+      SMTP_FROM: changeme
+      BASE_URL: localhost:3000
+    
+    # Espesificamos la cantidad de contenedores que estaran encendidos a la vez.
+    deploy:
+      replicas: 2
+
+# Especificamos que los secretos seran externos.
+secrets:
+  MYSQL_HOST:
+    external: true
+  MYSQL_PORT:
+    external: true
+  MYSQL_USER:
+    external: true
+  MYSQL_PASSWORD:
+    external: true
+  MYSQL_DB:
+    external: true
+  SMTP_USERNAME:
+    external: true
+  SMTP_PASSWORD:
+    external: true

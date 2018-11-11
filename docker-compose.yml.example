@@ -1,0 +1,48 @@
+version: "3.5"
+
+services:
+  web:
+    build: .
+    ports:
+      - 3000:3000
+    volumes:
+      - ./application:/usr/src/app
+      - ./public:/usr/src/app/public/comp
+    secrets:
+      - MYSQL_HOST
+      - MYSQL_PORT
+      - MYSQL_USER
+      - MYSQL_USER_PASSWORD
+      - MYSQL_DB
+      - SMTP_USERNAME
+      - SMTP_PASSWORD
+    environment:
+      MYSQL_HOST: /run/secrets/MYSQL_HOST
+      MYSQL_PORT: /run/secrets/MYSQL_PORT
+      MYSQL_USER: /run/secrets/MYSQL_USER
+      MYSQL_PASSWORD: /run/secrets/MYSQL_USER_PASSWORD
+      MYSQL_DB: /run/secrets/MYSQL_DB
+      SMTP_USERNAME: /run/secrets/SMTP_USERNAME
+      SMTP_PASSWORD: /run/secrets/SMTP_PASSWORD
+      GOOGLE_CLIENT_ID: changeme
+      GOOGLE_CLIENT_SECRET: changeme
+      TOKEN_SECRET: chengeme
+      SMTP_FROM:
+      BASE_URL: http://localhost:3000
+
+secrets:
+  MYSQL_HOST:
+    file: ./secrets/MYSQL_HOST.txt
+  MYSQL_PORT:
+    file: ./secrets/MYSQL_PORT.txt
+  MYSQL_USER:
+    file: ./secrets/MYSQL_USER.txt
+  MYSQL_USER_PASSWORD:
+    file: ./secrets/MYSQL_PASSWORD.txt
+  MYSQL_DB:
+    file: ./secrets/MYSQL_DB.txt
+  SMTP_USERNAME:
+    file: ./secrets/SMTP_USERNAME.txt
+  SMTP_PASSWORD:
+    file: ./secrets/SMTP_PASSWORD.txt
+    

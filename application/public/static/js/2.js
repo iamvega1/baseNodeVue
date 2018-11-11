@@ -1,0 +1,2 @@
+webpackJsonp([2],{"8Lev":function(t,e,n){"use strict";Object.defineProperty(e,"__esModule",{value:!0});var r={render:function(){var t=this.$createElement,e=this._self._c||t;return e("div",[e("router-link",{attrs:{to:"/about"}},[this._v("Go to about")]),this._v(" "),e("h1",[this._v("Lista User")])],1)},staticRenderFns:[]};var s=n("VU/8")({name:"usuarios"},r,!1,function(t){n("hF/m")},null,null);e.default=s.exports},"hF/m":function(t,e){}});
+//# sourceMappingURL=2.js.map

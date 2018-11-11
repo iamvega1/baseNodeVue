@@ -1,0 +1,9 @@
+logs
+*.log
+npm-debug.log*
+node_modules/
+application/node_modules/
+application/vue-views/node_modules/
+secrets/
+docker-compose.yml
+
